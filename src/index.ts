@@ -41,6 +41,7 @@ const saveEventsToFile = (events: Event[]) => {
 };
 
 app.get('/events', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*"); // you would want to change the * to the website
     console.log('Requested events');
     try {
         const data = fs.readFileSync(path.resolve(__dirname, 'events.json'), 'utf-8');
@@ -59,7 +60,7 @@ setInterval(async () => {
 }, 7 * 24 * 60 * 60 * 1000);
 
 app.listen(PORT, async () => {
-    console.log(`Server started on http://localhost:${PORT}/scrape`);
+    console.log(`Server started on http://localhost:${PORT}/events`);
 
     console.log('Initial scrape started...');
     const initialEvents = await scrapeEvents();
