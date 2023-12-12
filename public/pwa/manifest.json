@@ -1,0 +1,22 @@
+{
+    "name": "GDSC Farmingdale| Links API",
+    "short_name": "GDSC Links API",
+    "theme_color": "#66A266",
+    "background_color": 
+    "#006400",
+    "start_url": "/",
+    "description": "",
+    "scope": "/",
+    "dir": "ltr",
+    "orientation": "portrait-primary",
+    "display_override": ["minimal-ui","browser","fullscreen"],
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "../assets/svgs/logo.svg",
+            "type": "image/svg+xml",
+            "sizes": "any",
+            "purpose": "maskable"
+        }
+    ]
+}
