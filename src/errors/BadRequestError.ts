@@ -1,4 +1,4 @@
-import { CustomError } from './CustomError';
+import { CustomError } from '../errors/CustomError';
 
 export default class BadRequestError extends CustomError {
 	private static readonly _statusCode = 400;
@@ -6,7 +6,7 @@ export default class BadRequestError extends CustomError {
 	private readonly _logging: boolean;
 	private readonly _context: {
 		[
-			key: string // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+			key: string
 		]: any;
 	};
 
@@ -16,7 +16,7 @@ export default class BadRequestError extends CustomError {
 		logging?: boolean;
 		context?: {
 			[
-				key: string // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+				key: string
 			]: any;
 		};
 	}) {
@@ -42,7 +42,6 @@ export default class BadRequestError extends CustomError {
 			params?.context ||
 			{};
 
-		// Only because we are extending a built in class
 		Object.setPrototypeOf(
 			this,
 			BadRequestError.prototype

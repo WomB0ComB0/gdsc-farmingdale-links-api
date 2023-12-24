@@ -7,7 +7,7 @@ router.get('/', (_req: Request, res: Response) => {
   res.header('Access-Control-Allow-Origin', '*');
   console.log('Requested past events');
   try {
-    const data = readEventsFromFile('../data/past-events.json');
+    const data = readEventsFromFile('../data/past-events.js');
     res.json(data);
   } catch (error) {
     console.error('An error occurred:', error);

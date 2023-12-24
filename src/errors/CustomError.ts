@@ -3,7 +3,7 @@ export type CustomErrorContent = {
 	context?: {
 		[
 			key: string
-		]// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		]
 		: any;
 	};
 };
@@ -20,7 +20,6 @@ export abstract class CustomError extends Error {
 			message
 		);
 
-		// Only because we are extending a built in class
 		Object.setPrototypeOf(
 			this,
 			CustomError.prototype

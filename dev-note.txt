@@ -1,1 +1,4 @@
 If anything goes wrong, without any prior changes(out of the box), then change the parser code.
+
+**For css**
+npx postcss input.css > output.css

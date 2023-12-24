@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { load } from 'cheerio';
 import puppeteer from 'puppeteer';
-import { College } from '../constant';
+import { College } from '../constant/index';
 
 type Events = {
     title: string | null;
@@ -33,7 +33,7 @@ export const scrapeEvents = async (): Promise<Events[]> => {
 };
 
 export const scrapePastEvents = async (): Promise<Events[]> => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({headless: "new"});
     const page = await browser.newPage();
 
     await page.goto(`https://gdsc.community.dev/${College}/`);
@@ -44,7 +44,6 @@ export const scrapePastEvents = async (): Promise<Events[]> => {
         const eventElements = document.querySelectorAll('[data-testid="container-block-24RneQKmFRW"]');
         const eventsArray: Events[] = [];
 
-        // biome-ignore lint/complexity/noForEach: <explanation>
 eventElements.forEach((elem) => {
             const titleElement = elem.querySelector('a.link-styles__link_1ec3q .dynamic-text');
             const title = titleElement?.textContent?.replace(/^\s*\w+\s+\d+,\s+\d+\s*-\s*/, '').trim() || '';

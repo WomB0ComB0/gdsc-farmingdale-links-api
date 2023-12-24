@@ -4,9 +4,16 @@
     "module": "CommonJS",
     "outDir": "./dist",
     "rootDir": "./src",
+    "jsx":"react",
     "strict": true,
-    "esModuleInterop": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+    }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/server.ts", "client/**/*.{ts,tsx}"],
   "exclude": ["node_modules"]
 }
