@@ -4,7 +4,6 @@
   "author": "Mike Odnis <mikeodnis3242004@gmail.com>",
   "homepage": "https://github.com/WomB0ComB0/gdsc-farmingdale-links-api#readme",
   "version": "1.0.0",
-  "private": true,
   "main": "server.js",
   "license": "MIT",
   "scripts": {
@@ -28,6 +27,8 @@
     "nodemon": "^3.0.2",
     "pug": "^3.0.2",
     "puppeteer": "^21.6.1",
+    "react-router-dom": "^6.21.1",
+    "ts-loader": "^9.5.1",
     "web-vitals": "^3.5.0"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.5",
     "@types/puppeteer": "^7.0.4",
+    "@types/react-dom": "^18.2.18",
     "@types/supertest": "^6.0.1",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",

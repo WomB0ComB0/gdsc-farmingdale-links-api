@@ -36,6 +36,10 @@ server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
   }
 });
 
+server.get("/api", (_req: Request, res: Response) => {
+  res.json({ message: "Use /api/upcoming-events or /api/past-events" });
+});
+
 server.use('/api/upcoming-events', limiter, upcomingEventsRouter);
 server.use('/api/past-events', limiter, pastEventsRouter);
 
@@ -60,7 +64,7 @@ const weeklyScrape = async () => {
 setInterval(weeklyScrape, 7 * 24 * 60 * 60 * 1000);
 
 server.listen(PORT, async () => {
-  console.log(`Server started on http://localhost:${PORT}/events`);
+  console.log(`Server started on http://localhost:${PORT}/`);
 
   console.log('Initial scrape started...');
   const initialUpcomingEvents = await scrapeEvents();

@@ -8,7 +8,7 @@ const App: React.FC = () => {
       }
     });
 
-    // Rest of your layout effect logic
+    // @ts-ignore
     const updateCursor = ({ x, y }) => {
       document.documentElement.style.setProperty('--x', x);
       document.documentElement.style.setProperty('--y', y);
@@ -105,45 +105,45 @@ const App: React.FC = () => {
     <>
     <Nav />
     <Header />
-      <main>
-    <section>
-      <article>
-        <h2>
-          GDSC Links API
-        </h2>
-        <p>
-          The purpose of this
-          <a href="https://en.wikipedia.org/wiki/API" rel="noopener noreferrer" target="_blank">
-            API
-          </a>
-          &nbsp;is to provide a way for any GDSC {/*Finish later*/}.
-          This api returns 2 json objects,
-          &nbsp;
-          <strong>
-            'past-events'
-          </strong>
-          <sup>
+    <main>
+      <section>
+        <article>
+          <h2>
+            GDSC Links API
+          </h2>
+          <p>
+            The purpose of this
+            <a href="https://en.wikipedia.org/wiki/API" rel="noopener noreferrer" target="_blank">
+              API
+            </a>
+            &nbsp;is to provide a way for any GDSC {/*Finish later*/}.
+            This api returns 2 json objects,
+            &nbsp;
+            <strong>
+              'past-events'
+            </strong>
+            <sup>
 
-          </sup>
-          &nbsp;(found in&nbsp;
-          <a href="/past-events" target="_self" rel="noopener noreferrer">
-            <i>
-              {"https://{domain}/api/past-events"}
-            </i>
-          </a>
-          ) and
-          <strong>
-            'upcoming-events'
-          </strong>
-          &nbsp;(found in&nbsp;
-          <a href="/upcoming-events" target="_self" rel="noopener noreferrer">
-            <i>
-              {"https://{domain}/api/upcoming-events"}
-            </i>
-          </a>
-          ).
-        </p>
-        <section role="group" dangerouslySetInnerHTML={{ __html: Accordion }}/>
+            </sup>
+            &nbsp;(found in&nbsp;
+            <a href="/api/past-events" target="_self" rel="noopener noreferrer">
+              <i>
+                {"https://{domain}/api/past-events"}
+              </i>
+            </a>
+            ) and
+            <strong>
+              'upcoming-events'
+            </strong>
+            &nbsp;(found in&nbsp;
+            <a href="/api/upcoming-events" target="_self" rel="noopener noreferrer">
+              <i>
+                {"https://{domain}/api/upcoming-events"}
+              </i>
+            </a>
+            ).
+          </p>
+          <section role="group" dangerouslySetInnerHTML={{ __html: Accordion }}/>
       </article>
     </section>
   </main>

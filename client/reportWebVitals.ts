@@ -1,11 +1,15 @@
-import {onCLS, onFID, onLCP} from 'web-vitals';
+import { ReportHandler } from 'web-vitals';
 
-function sendToAnalytics(metric) {
-  const body = JSON.stringify(metric);
-  (navigator.sendBeacon && navigator.sendBeacon('/analytics', body)) ||
-    fetch('/analytics', {body, method: 'POST', keepalive: true});
-}
+const reportWebVitals = (onPerfEntry?: ReportHandler) => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
 
-onCLS(sendToAnalytics);
-onFID(sendToAnalytics);
-onLCP(sendToAnalytics);
+export default reportWebVitals;

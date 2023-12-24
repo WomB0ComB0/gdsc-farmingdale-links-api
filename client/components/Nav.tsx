@@ -4,7 +4,7 @@ const Nav: React.FC = () => {
     <nav>
       <menu>
         <li>
-          <img src="public/assets/images/Logo.png" alt="Logo" width="40" height="40" aria-hidden="true" />
+          <img src="/assets/images/Logo.png" alt="Logo" width="40" height="40" aria-hidden="true" />
           <a id="organization" target="_blank" rel="noopener noreferrer">
             <span>GDSC</span> Farmingdale
           </a>
