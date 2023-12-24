@@ -55,8 +55,8 @@ const weeklyScrape = async () => {
   const currentEvents = await scrapeEvents();
   const pastEvents = await scrapePastEvents();
 
-  saveEventsToFile(currentEvents, 'upcomingEvents', '../data/upcoming-events.js');
-  saveEventsToFile(pastEvents, 'pastEvents','../data/past-events.js');
+  saveEventsToFile(currentEvents, '../data/upcoming-events.json');
+  saveEventsToFile(pastEvents, '../data/past-events.json');
 
   console.log('Weekly scrape complete!');
 };
@@ -70,8 +70,8 @@ server.listen(PORT, async () => {
   const initialUpcomingEvents = await scrapeEvents();
   const initialPastEvents = await scrapePastEvents();
 
-  saveEventsToFile(initialUpcomingEvents, 'upcomingEvents','../data/upcoming-events.js');
-  saveEventsToFile(initialPastEvents, 'pastEvents','../data/past-events.js');
+  saveEventsToFile(initialUpcomingEvents, '../data/upcoming-events.json');
+  saveEventsToFile(initialPastEvents, '../data/past-events.json');
 
   console.log('Initial scrape complete!');
 });
