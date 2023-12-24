@@ -2,7 +2,7 @@
     "name": "GDSC Farmingdale| Links API",
     "short_name": "GDSC Links API",
     "theme_color": "#66A266",
-    "background_color": 
+    "background_color":
     "#006400",
     "start_url": "/",
     "description": "",
@@ -18,5 +18,14 @@
             "sizes": "any",
             "purpose": "maskable"
         }
+    ],
+    "screenshots": [
+      {
+        "src": "../assets/images/Screenshot.png",
+        "sizes": "1200x677",
+        "type": "image/png",
+        "form_factor": "wide",
+        "label": "GDSC Farmingdale| Links API"
+      }
     ]
 }

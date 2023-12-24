@@ -30,7 +30,7 @@ server.use(express.static(path.join(__dirname, "../public")));
 
 server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
   try {
-    res.send("index.html");
+    res.sendFile(path.join(__dirname,"../public/index.html"));
   } catch (error) {
     next(error);
   }

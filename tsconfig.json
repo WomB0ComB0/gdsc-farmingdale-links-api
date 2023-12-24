@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "CommonJS",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["DOM" , "ESNext"],
     "outDir": "./dist",
-    "jsx":"react",
+    "jsx":"react-jsx",
+    "noEmit": true,
+    "isolatedModules": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
   },
-  "include": ["src/"],
+  "include": ["src/**/*"],
 }

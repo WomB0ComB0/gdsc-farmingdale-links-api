@@ -1,4 +1,5 @@
 const path = require('path')
+const million = require('million/compiler');
 
 module.exports = {
   entry: "./client/main.tsx",
@@ -19,4 +20,7 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public"),
   },
+  plugins: [
+    million.webpack({ auto: true })
+  ]
 };
