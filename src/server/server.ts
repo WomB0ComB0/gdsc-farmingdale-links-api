@@ -1,6 +1,4 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
-import { json } from 'body-parser';
-import { NotFound } from "http-errors";
 import path from 'path';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit'
@@ -26,7 +24,7 @@ const corsOptions = {
   optionSuccessStatus: 200
 }
 
-server.use(json());
+server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use(cors(corsOptions))
 
@@ -35,13 +33,13 @@ server.disable("x-powered-by");
 
 server.use(express.static(path.join(__dirname, "../public")));
 
-server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
-  try {
-    res.sendFile(path.join(__dirname,"../public/index.html"));
-  } catch (error) {
-    next(error);
-  }
-});
+// server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
+//   try {
+//     res.sendFile(path.join(__dirname,"../../index.html"));
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 server.get("/api", (_req: Request, res: Response) => {
   res.json({ message: "Use /api/upcoming-events or /api/past-events" });
@@ -49,10 +47,6 @@ server.get("/api", (_req: Request, res: Response) => {
 
 server.use('/api/upcoming-events', limiter, upcomingEventsRouter);
 server.use('/api/past-events', limiter, pastEventsRouter);
-
-server.get("*", function () {
-  throw new NotFound();
-});
 
 server.use(errorHandler);
 

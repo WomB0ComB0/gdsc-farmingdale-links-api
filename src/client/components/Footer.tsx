@@ -1,5 +1,5 @@
 import React from 'react'
-const Footer: React.FC = () => {
+const Footer: React.FC = (): JSX.Element => {
   const year = new Date().getFullYear();
   /* yyyy-mm-dd format */
   const foundingYear = new Date("2023-08-28").getFullYear();

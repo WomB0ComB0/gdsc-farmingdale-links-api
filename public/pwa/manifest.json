@@ -16,6 +16,18 @@
             "src": "../assets/svgs/logo.svg",
             "type": "image/svg+xml",
             "sizes": "any",
+            "purpose": "any"
+        },
+        {
+            "src": "../pwa/android/android-icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "../assets/images/logo.png",
+            "type": "image/png",
+            "sizes": "512x512",
             "purpose": "maskable"
         }
     ],
@@ -25,6 +37,13 @@
         "sizes": "1200x677",
         "type": "image/png",
         "form_factor": "wide",
+        "label": "GDSC Farmingdale| Links API"
+      },
+      {
+        "src": "../assets/images/Screenshot2.png",
+        "sizes": "637x866",
+        "type": "image/png",
+        "form_factor": "narrow",
         "label": "GDSC Farmingdale| Links API"
       }
     ]

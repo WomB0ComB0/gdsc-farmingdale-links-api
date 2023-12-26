@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-a11y-animated-images="system" data-a11y-link-underlines="false" data-turbo-loaded>
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GDSC FSC | Links API</title>
-  <meta name="description" content="" />
+  <meta name="description"
+    content="This initiative aims to offer a compelling alternative for GDSC communities seeking efficient means to keep their members informed. Rather than depending on conventional platforms like Bevy or LinkTree, this solution is designed to elevate the experience and streamline communication within the community." />
   <meta name="keywords" content="Web API" />
   <meta name="author" content="Mike Odnis" />
 
@@ -41,6 +42,7 @@
 
   <!-- Theme color -->
   <meta name="theme-color" content="#66A266" />
+
   <!-- all open graph tags -->
   <meta property="og:title" content="GDSC Farmingdale | Links API" />
   <meta property="og:type" content="website" />
@@ -55,40 +57,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@OdnisMike" />
   <meta name="twitter:image" content="https://web103-listicle.vercel.app/assets/images/og.png" />
+
+  <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin="anonymous">
 </head>
 
 <body>
   <div id="app"></div>
   <script src="https://kit.fontawesome.com/a93e9f2175.js" crossorigin="anonymous"></script>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      if (window.innerWidth < 600) {
-        alert("Please rotate your device to landscape mode for the best experience. Why are you even on mobile lol?");
-      }
-      // Card
-      const updateCursor = ({ x, y }) => {
-        document.documentElement.style.setProperty('--x', x)
-        document.documentElement.style.setProperty('--y', y)
-      }
-
-      document.body.addEventListener('pointermove', updateCursor)
-
-      // Anchor
-      const anchorRepository = document.getElementById("repository");
-      anchorRepository.href = "https://github.com/GDSC-FSC/gdsc-farmingdale-links"
-      const anchorOrganization = document.getElementById("organization");
-      anchorOrganization.href = "https://gdsc.community.dev/farmingdale-state-college/";
-
-      const accordion = document.querySelectorAll("details[name='accordion']");
-      accordion.forEach((element) => {
-        element.addEventListener("click", () => {
-          accordion.forEach((element) => {
-            element.removeAttribute("open");
-          });
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>

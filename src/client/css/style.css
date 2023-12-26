@@ -1,18 +1,18 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Poppins:wght@300;400;500;600&display=swap");
-
-:root {
-  --card-border-radius: 10px;
-}
 
 * {
   box-sizing: border-box;
   list-style: none;
   overflow-x: hidden;
-  overflow-y: hidden;
   scroll-behavior: smooth;
   text-decoration: none;
   transition: all 0.25s ease;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: transparent;
 }
 
 html {
@@ -26,7 +26,7 @@ html {
   width: 100dvw;
 }
 
-html body {
+html, body {
   background-image: radial-gradient(at 86% 45%, #303030 0, rgba(0, 0, 0, 0) 50%), radial-gradient(at 21% 96%, #474747 0, rgba(0, 0, 0, 0) 50%), radial-gradient(at 16% 5%, #262626 0, rgba(0, 0, 0, 0) 50%), radial-gradient(at 94% 56%, #0f0f0f 0, rgba(0, 0, 0, 0) 50%), radial-gradient(at 66% 76%, #424242 0, rgba(0, 0, 0, 0) 50%), radial-gradient(at 7% 2%, #484747 0, rgba(0, 0, 0, 0) 50%), radial-gradient(at 49% 76%, #212121 0, rgba(0, 0, 0, 0) 50%);
   display: flex;
   flex-direction: column;
@@ -61,23 +61,6 @@ html body nav a:visited {
   text-decoration: none !important;
 }
 
-html body nav menu:first-child {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-}
-
-html body nav menu:first-child li {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
 html body nav menu:nth-child(2) {
   align-items: center;
   display: flex;
@@ -102,22 +85,10 @@ html body nav menu:nth-child(2) li i {
   width: 40px;
 }
 
-html body header {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-html body header picture img {
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-  transition: all 0.25s ease;
-}
-
-html body header picture img:hover {
-  filter: grayscale(100%);
+html body header article:hover{
+  p, h1{
+    color: white;
+  }
 }
 
 html body main {
@@ -133,63 +104,20 @@ html body main {
   position: relative;
 }
 
-html body main .card ul {
-  aspect-ratio: 4/2;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  background: rgba(26, 26, 26, 0.2);
-  border-radius: var(--card-border-radius);
-  position: relative;
-  transition: background 0.1s;
-}
-
-html body main .card ul:hover {
-  --active: 1;
-}
-
-html body main .card ul:after {
-  background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), rgba(255, 255, 255, 0.1490196078), rgba(0, 0, 0, 0) 15vmin);
-  background-attachment: fixed;
-  border-radius: var(--card-border-radius);
-}
-
-html body main .card ul:after,
-html body main .card ul:before {
-  content: "";
-  inset: 0;
-  opacity: var(--active, 0);
-  pointer-events: none;
-  position: absolute;
-  transition: opacity 0.2s;
-}
-
-html body main .card ul:before {
-  background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), hsla(0, 0%, 100%, 0.5), rgba(0, 0, 0, 0) 15vmin), rgba(0, 0, 0, 0);
-  background-attachment: fixed;
-  -webkit-mask: linear-gradient(#fff, #fff) 50% 0/100% 4px no-repeat, linear-gradient(#fff, #fff) 50% 100%/100% 4px no-repeat, linear-gradient(#fff, #fff) 0 50%/4px 100% no-repeat, linear-gradient(#fff, #fff) 100% 50%/4px 100% no-repeat;
-  mask: linear-gradient(#fff, #fff) 50% 0/100% 4px no-repeat, linear-gradient(#fff, #fff) 50% 100%/100% 4px no-repeat, linear-gradient(#fff, #fff) 0 50%/4px 100% no-repeat, linear-gradient(#fff, #fff) 100% 50%/4px 100% no-repeat;
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  -webkit-mask-position: 0 0, 0 100%, 0 0, 100% 0;
-  mask-position: 0 0, 0 100%, 0 0, 100% 0;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 50%, 100% 50%, 50% 100%, 50% 100%;
-  mask-size: 100% 50%, 100% 50%, 50% 100%, 50% 100%;
-}
-
 html body main section {
-  margin-right: 2rem;
-  max-height: 600px;
-  max-width: 800px;
-  min-height: 300px;
-  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: calc(1rem + 1vw);
+  gap: 1rem;
+  height: fit-content;
   width: 100%;
 }
 
 html body main section article {
+  margin-inline: auto;
   width: -moz-fit-content;
   width: fit-content;
+  max-width: 800px;
 }
 
 html body main section article h2 {
@@ -215,67 +143,87 @@ html body main section article p a {
   color: #36c;
 }
 
-html body main section article section[role=group] {
+html body main section section[role=group] {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
   width: 100%;
 }
 
-html body main section article section[role=group] details {
-  height: 350px;
-  width: 330px;
+html body main section section[role=group] details {
+  height: fit-content;
+  width: fit-content;
 }
 
-html body main section article section[role=group] details ul {
+html body main section section[role=group] details summary {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+html body main section section[role=group] details[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+html body main section section[role=group] details ul {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+  list-style-type: single-emoji !important;
   margin-top: 0;
   overflow: auto;
   padding-left: 0 !important;
-  width: 300px !important;
+  width: inherit !important;
+  height: fit-content;
+  background-color: rgba(26, 26, 26, 0.4);
 }
 
-html body main section article section[role=group] details ul:after {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
+html body main section section[role=group] details ul:after {
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }
 
-html body main section article section[role=group] details ul li {
-  list-style-type: single-emoji !important;
+html body main section section[role=group] details ul li {
   margin-left: auto;
   width: 100% !important;
 }
 
-html body main section article section[role=group] details ul li p {
+html body main section section[role=group] details ul li:not(:last-child){
+  border-bottom: calc(1.5px) solid #000;
+}
+
+html body main section section[role=group] details ul li p {
   font-size: small;
   left: -20px;
-  margin-left: auto;
+  margin-left: 20px;
   padding-left: 0;
   text-align: left !important;
   width: 100%;
 }
 
-html body main section article section[role=group] details ul li p strong {
+html body main section section[role=group] details ul li p strong {
   text-align: left !important;
 }
 
-html body main section article section[role=group] details>p {
+html body main section section[role=group] details>p {
   display: inline-block;
   font-weight: 300;
   height: 0;
   overflow: hidden;
   padding: 0 0 0 1rem;
-  width: 300px;
+  width: inherit;
 }
 
-html body main section article section[role=group] details[open]>p {
+html body main section section[role=group] details[open]>p {
   height: -moz-fit-content;
   height: fit-content;
   padding: 1rem 0 1rem 2rem;
 }
 
-html body main section article section[role=group] summary {
+html body main section section[role=group] summary {
   border-bottom: 1px solid #000;
   border-inline: 1px solid #000;
   border-top: 1px solid #000;
@@ -285,10 +233,11 @@ html body main section article section[role=group] summary {
   font-weight: 600;
   padding: 1rem;
   position: relative;
-  width: 300px;
+  width: 225px;
+  background-color: rgba(26, 26, 26, 0.8);
 }
 
-html body main section article section[role=group] summary:after {
+html body main section section[role=group] summary:after {
   content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='currentColor' stroke-width='1.5' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='hsl(0 0% 98%)' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E%0A");
   position: absolute;
@@ -298,9 +247,10 @@ html body main section article section[role=group] summary:after {
   transition: rotate 0.2s;
   translate: 0 -35%;
   width: 20px;
+  margin-right: 1rem;
 }
 
-html body main section article section[role=group] details[open] summary:after {
+html body main section section[role=group] details[open] summary:after {
   rotate: -180deg;
 }
 
@@ -316,14 +266,7 @@ html footer {
   padding-inline: 1rem;
   position: absolute;
   width: 100%;
-}
-
-html footer p:first-child {
-  margin-left: 40px;
-}
-
-html footer p:last-child {
-  margin-right: 40px;
+  margin-inline: auto;
 }
 
 html footer p:last-child a:link,
