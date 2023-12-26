@@ -1,6 +1,6 @@
 import express from "express";
 import request from "supertest";
-import { server } from "../src/server";
+import { server } from "../src/server/server";
 
 const app = express();
 app.use(server);

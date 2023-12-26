@@ -20,12 +20,19 @@ const limiter = rateLimit({
 export const server: Application = express();
 const PORT = process.env.PORT || 3000;
 
-server.use(cors())
-server.disable("trust proxy");
-server.disable("x-powered-by");
+const corsOptions = {
+  origin:  '*',
+  credentials: true,
+  optionSuccessStatus: 200
+}
 
 server.use(json());
 server.use(express.urlencoded({ extended: false }));
+server.use(cors(corsOptions))
+
+server.disable("trust proxy");
+server.disable("x-powered-by");
+
 server.use(express.static(path.join(__dirname, "../public")));
 
 server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
