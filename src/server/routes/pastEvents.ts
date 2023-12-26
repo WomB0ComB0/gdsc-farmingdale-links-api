@@ -1,7 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { readEventsFromFile } from '../controllers/fileHandler';
 
-const router = Router();
+const router: Router = Router();
 
 router.get('/', (_req: Request, res: Response) => {
   res.header('Access-Control-Allow-Origin', '*');

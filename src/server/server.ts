@@ -71,8 +71,8 @@ server.listen(PORT, async () => {
   const initialUpcomingEvents = await scrapeEvents();
   const initialPastEvents = await scrapePastEvents();
 
-  saveEventsToFile(initialUpcomingEvents, '../data/upcoming-events.json');
-  saveEventsToFile(initialPastEvents, '../data/past-events.json');
+  saveEventsToFile(initialUpcomingEvents, './data/upcoming-events.json');
+  saveEventsToFile(initialPastEvents, './data/past-events.json');
 
   console.log('Initial scrape complete!');
 });
