@@ -46,25 +46,36 @@
   <!-- all open graph tags -->
   <meta property="og:title" content="GDSC Farmingdale | Links API" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://web103-listicle.vercel.app" />
-  <meta property="og:image" content="https://web103-listicle.vercel.app/assets/images/og.png" />
+  <meta property="og:url" content="https://gdsc-api.onrender.com" />
+  <meta property="og:image" content="https://gdsc-api.onrender.com/assets/images/og.png" />
   <meta property="og:description"
-    content="This site is a hub for all of my personal links, for which I can be reached out to or general information I wish to disclose." />
+    content="This initiative aims to offer a compelling alternative for GDSC communities seeking efficient means to keep their members informed. Rather than depending on conventional platforms like Bevy or LinkTree, this solution is designed to elevate the experience and streamline communication within the community." />
   <meta property="og:site_name" content="GDSC Farmingdale | Links API" />
   <meta property="og:locale" content="en_US" />
 
   <!-- all twitter card tags -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@OdnisMike" />
-  <meta name="twitter:image" content="https://web103-listicle.vercel.app/assets/images/og.png" />
+  <meta name="twitter:image" content="https://gdsc-api.onrender.com/assets/images/og.png" />
 
   <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin="anonymous">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
 </head>
 
 <body>
   <div id="app"></div>
   <script src="https://kit.fontawesome.com/a93e9f2175.js" crossorigin="anonymous"></script>
-      <script type="module" src="./src/client/main.tsx"></script>
+  <script type="module" src="./src/client/main.tsx"></script>
 </body>
 
 </html>

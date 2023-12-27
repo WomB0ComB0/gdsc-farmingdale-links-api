@@ -12,6 +12,7 @@ import ViteExpress from "vite-express";
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
 
+
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
@@ -32,7 +33,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use(cors(corsOptions))
 
-server.disable("trust proxy");
+server.enable("trust proxy");
 server.disable("x-powered-by");
 
 server.use(express.static(path.join(__dirname, "../public")));

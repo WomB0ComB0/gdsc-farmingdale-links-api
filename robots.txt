@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+sitemap: https://gdsc-api.onrender.com/sitemap.xml
