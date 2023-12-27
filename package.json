@@ -9,8 +9,8 @@
   "scripts": {
     "setup": "husky install",
     "dev": "nodemon -w src/server -x tsx src/server/server.ts",
-    "start": "prestart && NODE_ENV=production tsx src/server/server.ts",
-    "prestart": "npx puppeteer browsers install chrome",
+    "start": "npm run start:pre && NODE_ENV=production tsx src/server/server.ts",
+    "start:pre": "npx puppeteer browsers install chrome",
     "build": "vite build",
     "test": "jest",
     "lint": "eslint --cache --report-unused-disable-directives ."
