@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./css/style.css"
 import * as serviceWorker from './serviceWorker'
 
-const container = document.getElementById("app")! as HTMLElement;
+const container = document.getElementById("app")!;
 const root = createRoot(container);
 root.render(
   <BrowserRouter>

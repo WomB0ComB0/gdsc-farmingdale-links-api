@@ -11,8 +11,6 @@ type Events = {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const dataDirectory = path.join(__dirname, '..', '..', 'server');
-
 export const saveEventsToFile = (events: Events[], filePath: string) => {
   const filteredEvents = events.filter(
     (event) => event.title !== null && event.thumbnailLink !== null && event.detailsLink !== null

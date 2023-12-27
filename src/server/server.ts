@@ -8,6 +8,9 @@ import { saveEventsToFile } from './controllers/fileHandler';
 import upcomingEventsRouter from './routes/upcomingEvents';
 import pastEventsRouter from './routes/pastEvents';
 
+const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
+
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
@@ -33,13 +36,13 @@ server.disable("x-powered-by");
 
 server.use(express.static(path.join(__dirname, "../public")));
 
-// server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
-//   try {
-//     res.sendFile(path.join(__dirname,"../../index.html"));
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
+  try {
+    res.sendFile(path.join(__dirname,"../../index.html"));
+  } catch (error) {
+    next(error);
+  }
+});
 
 server.get("/api", (_req: Request, res: Response) => {
   res.json({ message: "Use /api/upcoming-events or /api/past-events" });
@@ -71,8 +74,8 @@ server.listen(PORT, async () => {
   const initialUpcomingEvents = await scrapeEvents();
   const initialPastEvents = await scrapePastEvents();
 
-  saveEventsToFile(initialUpcomingEvents, './data/upcoming-events.json');
-  saveEventsToFile(initialPastEvents, './data/past-events.json');
+  saveEventsToFile(initialUpcomingEvents, '../data/upcoming-events.json');
+  saveEventsToFile(initialPastEvents, '../data/past-events.json');
 
   console.log('Initial scrape complete!');
 });
