@@ -1,12 +1,12 @@
-import React, { SVGAttributes } from 'react'
+import React from 'react'
 
-const OpenGraph: React.FC<{ props?: SVGAttributes<SVGElement> }> = (props): JSX.Element => {
+// <{ props?: SVGAttributes<SVGElement> }>
+const OpenGraph: React.FC = (): JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       viewBox='0 0 512 512'
-      {...props}
     >
       <rect x="33" y="242.514" width="206.171" height="73" rx="36.5" transform="rotate(-29.497 33 242.514)" fill="#EA4336" />
       <rect x="67.6865" y="207" width="206.171" height="73" rx="36.5" transform="rotate(30.1692 67.6865 207)" fill="#4286F5" />

@@ -1,8 +1,8 @@
-import React from 'react'
-const Header: React.FC<{ name?: string }> = ({ name = 'SUNY Farmingdale' }): JSX.Element => {
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const [height, setHeight] = React.useState(window.innerHeight);
-  React.useEffect(() => {
+import { FC, useState, useEffect} from 'react'
+const Header: FC<{ name?: string }> = ({ name = 'SUNY Farmingdale' }): JSX.Element => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  useEffect(() => {
     const updateDimensions = () => {
       setWidth(window.innerWidth);
       setHeight(window.innerHeight);
@@ -10,7 +10,7 @@ const Header: React.FC<{ name?: string }> = ({ name = 'SUNY Farmingdale' }): JSX
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
-  React.useEffect(() => {
+  useEffect(() => {
     if (width < 600) {
       alert("Please rotate your device to landscape mode for the best experience. Why are you even on mobile lol?");
     }

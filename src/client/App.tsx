@@ -1,8 +1,8 @@
-import React from "react";
+import { useEffect } from 'react'
 import { Nav, Header, Footer } from "./components/index";
 
 const App = (): JSX.Element => {
-  React.useEffect(() => {
+  useEffect(() => {
     const accordion = document.querySelectorAll("details[name='accordion']");
     accordion.forEach((element) => {
       element.addEventListener("click", () => {

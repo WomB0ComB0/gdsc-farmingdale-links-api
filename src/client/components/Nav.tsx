@@ -18,14 +18,7 @@ const Nav = (): JSX.Element => {
           window.open("https://gdsc.community.dev/farmingdale-state-college/", "_blank", "noopener noreferrer")
         }}
       >
-        <GdscLogo
-          props={{
-            style: {
-              height: "4rem",
-              width: "4rem",
-            },
-          }}
-        />
+        <GdscLogo/>
       </menu>
       <menu>
         <li>

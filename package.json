@@ -15,12 +15,14 @@
     "lint": "eslint --cache --report-unused-disable-directives ."
   },
   "dependencies": {
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "body-parser": "^1.20.2",
     "cheerio": "^1.0.0-rc.12",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "envalid": "^8.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
     "express": "~4.18.2",
     "express-rate-limit": "^7.1.5",
     "http-errors": "^2.0.0",

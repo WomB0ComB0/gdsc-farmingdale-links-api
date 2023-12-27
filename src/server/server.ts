@@ -7,6 +7,8 @@ import { scrapeEvents, scrapePastEvents } from './controllers/scraper';
 import { saveEventsToFile } from './controllers/fileHandler';
 import upcomingEventsRouter from './routes/upcomingEvents';
 import pastEventsRouter from './routes/pastEvents';
+import ViteExpress from "vite-express";
+
 
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
@@ -18,8 +20,8 @@ const limiter = rateLimit({
 	legacyHeaders: false,
 });
 
-export const server: Application = express();
-const PORT = process.env.PORT || 3000;
+const server = express();
+const PORT = 3000;
 
 const corsOptions = {
   origin:  '*',
@@ -36,14 +38,6 @@ server.disable("x-powered-by");
 
 server.use(express.static(path.join(__dirname, "../public")));
 
-server.get("/", (_req: Request, res: Response, next: NextFunction): void => {
-  try {
-    res.sendFile(path.join(__dirname,"../../index.html"));
-  } catch (error) {
-    next(error);
-  }
-});
-
 server.get("/api", (_req: Request, res: Response) => {
   res.json({ message: "Use /api/upcoming-events or /api/past-events" });
 });
@@ -51,7 +45,7 @@ server.get("/api", (_req: Request, res: Response) => {
 server.use('/api/upcoming-events', limiter, upcomingEventsRouter);
 server.use('/api/past-events', limiter, pastEventsRouter);
 
-server.use(errorHandler);
+// server.use(errorHandler);
 
 const weeklyScrape = async () => {
   console.log('Weekly scrape started...');
@@ -67,7 +61,7 @@ const weeklyScrape = async () => {
 
 setInterval(weeklyScrape, 7 * 24 * 60 * 60 * 1000);
 
-server.listen(PORT, async () => {
+ViteExpress.listen(server, PORT, async () => {
   console.log(`Server started on http://localhost:${PORT}/`);
 
   console.log('Initial scrape started...');
