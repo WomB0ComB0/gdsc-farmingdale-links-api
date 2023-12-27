@@ -49,8 +49,8 @@ The server will start on `http://localhost:3000`.
 
 ## API Endpoints
 
-- **GET** `/events`
-  - Returns the events stored in the local JSON file.
+- **GET** `/api/past-events`
+  - Returns the past events stored in the local JSON file.
 
 ## Acknowledgements
 
@@ -60,6 +60,11 @@ This repository may utilize packages and dependencies from the following sources
 - [Express.js](https://expressjs.com/)
 - [Axios](https://axios-http.com/)
 - [Cheerio](https://cheerio.js.org/)
+
+### Deployment
+
+You can use which-ever method suits you best. Personally, I used [Render](https://render.com)
+[Video walkthrough on how to deploy with Render](https://www.youtube.com/watch?v=iCWZi1YeOes)
 
 Please make sure to review and adhere to the licenses and terms of use of these dependencies.
 
