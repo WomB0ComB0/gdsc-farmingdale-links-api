@@ -1,8 +1,7 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import path from 'path';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit'
-import { errorHandler } from './middleware/errors';
 import { scrapeEvents, scrapePastEvents } from './controllers/scraper';
 import { saveEventsToFile } from './controllers/fileHandler';
 import upcomingEventsRouter from './routes/upcomingEvents';
