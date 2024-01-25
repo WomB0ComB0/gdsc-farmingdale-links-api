@@ -17,7 +17,9 @@ export const scrapeEvents = async (): Promise<Events[]> => {
     const events: Events[] = [];
 
     $('#--ruSKZrkro').each((_i, elem) => {
-        const title = $(elem).find('div.dynamic-text').text().trim() || $(elem).find('div.dynamic-text div').text().trim();
+        const titleWithDate = $(elem).find('strong div.dynamic-text').text().trim() || $(elem).find('div.dynamic-text div').text().trim();
+
+        const title = titleWithDate.replace(/^.*?\b\d{1,2},?\s\d{4}/, '').trim()
 
         const thumbnailLink = $(elem).find('img').attr('src') || null;
         const detailsLink = $(elem).find('a.link-styles__link_1ec3q').attr('href') || null;
