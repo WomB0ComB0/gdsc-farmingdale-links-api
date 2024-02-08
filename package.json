@@ -38,7 +38,7 @@
     "react-router-dom": "^6.21.3",
     "ts-loader": "^9.5.1",
     "tsx": "^4.7.0",
-    "vite-express": "*",
+    "vite-express": "0.13.0",
     "vitest": "^1.2.1",
     "web-auth-library": "^1.0.3",
     "web-vitals": "^3.5.2",
