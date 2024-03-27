@@ -33,7 +33,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use(cors(corsOptions))
 
-server.enable("trust proxy");
+// server.enable("trust proxy");
 server.disable("x-powered-by");
 
 server.use(express.static(path.join(__dirname, "../public")));
