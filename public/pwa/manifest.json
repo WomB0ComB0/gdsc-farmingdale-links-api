@@ -1,50 +1,49 @@
 {
-    "name": "GDSC Farmingdale| Links API",
-    "short_name": "GDSC Links API",
-    "theme_color": "#66A266",
-    "background_color":
-    "#006400",
-    "start_url": "/",
-    "description": "This initiative aims to offer a compelling alternative for GDSC communities seeking efficient means to keep their members informed. Rather than depending on conventional platforms like Bevy or LinkTree, this solution is designed to elevate the experience and streamline communication within the community.",
-    "scope": "/",
-    "dir": "ltr",
-    "orientation": "portrait-primary",
-    "display_override": ["minimal-ui","browser","fullscreen"],
-    "display": "standalone",
-    "icons": [
-        {
-            "src": "../assets/svgs/logo.svg",
-            "type": "image/svg+xml",
-            "sizes": "any",
-            "purpose": "any"
-        },
-        {
-            "src": "../pwa/android/android-icon-192x192.png",
-            "type": "image/png",
-            "sizes": "192x192",
-            "purpose": "maskable"
-        },
-        {
-            "src": "../assets/images/logo.png",
-            "type": "image/png",
-            "sizes": "512x512",
-            "purpose": "maskable"
-        }
-    ],
-    "screenshots": [
-      {
-        "src": "../assets/images/Screenshot.png",
-        "sizes": "1200x677",
-        "type": "image/png",
-        "form_factor": "wide",
-        "label": "GDSC Farmingdale| Links API"
-      },
-      {
-        "src": "../assets/images/Screenshot2.png",
-        "sizes": "637x866",
-        "type": "image/png",
-        "form_factor": "narrow",
-        "label": "GDSC Farmingdale| Links API"
-      }
-    ]
+	"name": "GDSC Farmingdale| Links API",
+	"short_name": "GDSC Links API",
+	"theme_color": "#66A266",
+	"background_color": "#006400",
+	"start_url": "/",
+	"description": "This initiative aims to offer a compelling alternative for GDSC communities seeking efficient means to keep their members informed. Rather than depending on conventional platforms like Bevy or LinkTree, this solution is designed to elevate the experience and streamline communication within the community.",
+	"scope": "/",
+	"dir": "ltr",
+	"orientation": "portrait-primary",
+	"display_override": ["minimal-ui", "browser", "fullscreen"],
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "../assets/svgs/logo.svg",
+			"type": "image/svg+xml",
+			"sizes": "any",
+			"purpose": "any"
+		},
+		{
+			"src": "../pwa/android/android-icon-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "maskable"
+		},
+		{
+			"src": "../assets/images/logo.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "../assets/images/Screenshot.png",
+			"sizes": "1200x677",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "GDSC Farmingdale| Links API"
+		},
+		{
+			"src": "../assets/images/Screenshot2.png",
+			"sizes": "637x866",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "GDSC Farmingdale| Links API"
+		}
+	]
 }

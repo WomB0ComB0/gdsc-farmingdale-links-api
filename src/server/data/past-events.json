@@ -1,22 +1,22 @@
 [
-  {
-    "title": "Build with AI",
-    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/GDG_Bevy-EventThumb-Blue_.png",
-    "detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-university-of-maryland-college-park-united-states-presents-build-with-ai/"
-  },
-  {
-    "title": "GDSC Farmingdale Speaker Event : Stephen Wylie [GDE (Google Developer Expert) Machine Learning]",
-    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/pixlr-image-generator-30278693-bb98-4832-affc-7c1b805be0e5.png",
-    "detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-farmingdale-state-college-presents-gdsc-farmingdale-speaker-event-stephen-wylie-gde-google-developer-expert-machine-learning/"
-  },
-  {
-    "title": "GDSC FSC x Hack@CEWIT",
-    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/GDSC-Fsc-x-Cewit.png",
-    "detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-farmingdale-state-college-presents-gdsc-fsc-x-hackcewit/"
-  },
-  {
-    "title": "Full Stack Application Development.",
-    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/GBMs_2.png",
-    "detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-stony-brook-university-presents-full-stack-application-development/"
-  }
+	{
+		"title": "Build with AI",
+		"thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/GDG_Bevy-EventThumb-Blue_.png",
+		"detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-university-of-maryland-college-park-united-states-presents-build-with-ai/"
+	},
+	{
+		"title": "GDSC Farmingdale Speaker Event : Stephen Wylie [GDE (Google Developer Expert) Machine Learning]",
+		"thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/pixlr-image-generator-30278693-bb98-4832-affc-7c1b805be0e5.png",
+		"detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-farmingdale-state-college-presents-gdsc-farmingdale-speaker-event-stephen-wylie-gde-google-developer-expert-machine-learning/"
+	},
+	{
+		"title": "GDSC FSC x Hack@CEWIT",
+		"thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/GDSC-Fsc-x-Cewit.png",
+		"detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-farmingdale-state-college-presents-gdsc-fsc-x-hackcewit/"
+	},
+	{
+		"title": "Full Stack Application Development.",
+		"thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-dsc/events/GBMs_2.png",
+		"detailsLink": "https://gdsc.community.dev/events/details/developer-student-clubs-stony-brook-university-presents-full-stack-application-development/"
+	}
 ]

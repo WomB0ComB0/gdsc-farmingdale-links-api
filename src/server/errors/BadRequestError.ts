@@ -1,13 +1,11 @@
-import { CustomError } from './CustomError';
+import { CustomError } from "./CustomError";
 
 export default class BadRequestError extends CustomError {
 	private static readonly _statusCode = 400;
 	private readonly _code: number;
 	private readonly _logging: boolean;
 	private readonly _context: {
-		[
-			key: string
-		]: any;
+		[key: string]: any;
 	};
 
 	constructor(params?: {
@@ -15,57 +13,33 @@ export default class BadRequestError extends CustomError {
 		message?: string;
 		logging?: boolean;
 		context?: {
-			[
-				key: string
-			]: any;
+			[key: string]: any;
 		};
 	}) {
-		const {
-			code,
-			message,
-			logging,
-		} =
-			params ||
-			{};
+		const { code, message, logging } = params || {};
 
-		super(
-			message ||
-				'Bad request'
-		);
-		this._code =
-			code ||
-			BadRequestError._statusCode;
-		this._logging =
-			logging ||
-			false;
-		this._context =
-			params?.context ||
-			{};
+		super(message || "Bad request");
+		this._code = code || BadRequestError._statusCode;
+		this._logging = logging || false;
+		this._context = params?.context || {};
 
-		Object.setPrototypeOf(
-			this,
-			BadRequestError.prototype
-		);
+		Object.setPrototypeOf(this, BadRequestError.prototype);
 	}
 
 	get errors() {
 		return [
 			{
-				message: this
-					.message,
-				context: this
-					._context,
+				message: this.message,
+				context: this._context,
 			},
 		];
 	}
 
 	get statusCode() {
-		return this
-			._code;
+		return this._code;
 	}
 
 	get logging() {
-		return this
-			._logging;
+		return this._logging;
 	}
 }
