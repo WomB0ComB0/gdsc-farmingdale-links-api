@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 // <{ props?: React.SVGAttributes<SVGElement> }>
 const GdscLogo: React.FC = (): JSX.Element => {

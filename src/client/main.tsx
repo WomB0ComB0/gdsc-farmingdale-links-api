@@ -1,9 +1,10 @@
+"use client";
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./css/style.css"
-import * as serviceWorker from './serviceWorker'
+// import * as serviceWorker from './serviceWorker'
 
 const container = document.getElementById("app")!;
 const root = createRoot(container);
@@ -50,4 +51,4 @@ root.render(
 
 
 reportWebVitals();
-serviceWorker.register()
+// serviceWorker.register()

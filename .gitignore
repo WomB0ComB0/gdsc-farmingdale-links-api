@@ -4,5 +4,5 @@
 .idea
 .env
 package-lock.json
-
+vite.config.ts.timestamp*
 .vercel

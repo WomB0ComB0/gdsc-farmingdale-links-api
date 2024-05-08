@@ -1,3 +1,4 @@
+"use client";
 import { GdscLogo } from './svgs/index';
 const Nav = (): JSX.Element => {
   return (

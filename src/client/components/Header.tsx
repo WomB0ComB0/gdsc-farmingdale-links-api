@@ -1,3 +1,4 @@
+"use client";
 import { FC, useState, useEffect} from 'react'
 const Header: FC<{ name?: string }> = ({ name = 'SUNY Farmingdale' }): JSX.Element => {
   const [width, setWidth] = useState(window.innerWidth);
