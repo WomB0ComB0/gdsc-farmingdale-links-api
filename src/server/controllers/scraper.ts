@@ -41,7 +41,7 @@ export const scrapePastEvents = async (): Promise<Events[]> => {
 	const browser = await puppeteer.launch({ headless: true });
 	const page = await browser.newPage();
 
-	await page.goto(`https://gdsc.community.dev/${College}/`);
+	await page.goto(`https://gdsc.community.dev/${College}/`, { timeout: 0, waitUntil: "domcontentloaded" });
 	// Wait for some time to ensure dynamic content is loaded (you might need to adjust the time)
 	await new Promise((r) => setTimeout(r, 5000));
 
