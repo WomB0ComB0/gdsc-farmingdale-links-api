@@ -23,12 +23,12 @@ const limiter = rateLimit({
 });
 
 const server = express();
-const port = 3000;
+const port = parseInt(process.env.PORT as string, 10) || 3000;
 
 const corsOptions = {
-	origin: "https://gdsc-fsc-l.web.app",
-	credentials: true,
-	optionSuccessStatus: 200,
+  origin: "https://gdsc-fsc-l.web.app",
+  credentials: true,
+  optionSuccessStatus: 200,
 };
 
 server.use(express.json());
