@@ -21,7 +21,7 @@ const limiter = rateLimit({
 });
 
 const server = express();
-const PORT = 3000;
+const port = parseInt(process.env.PORT!) || 3000;
 
 const corsOptions = {
   origin:  'https://gdsc-fsc-l.web.app',
@@ -89,8 +89,8 @@ const weeklyScrape = async () => {
 
 setInterval(weeklyScrape, 7 * 24 * 60 * 60 * 1000);
 
-ViteExpress.listen(server, PORT, async () => {
-  console.log(`Server started on http://localhost:${PORT}/`);
+ViteExpress.listen(server, port, async () => {
+  console.log(`Server started on http://localhost:${port}/`);
 
   console.log('Initial scrape started...');
   const initialUpcomingEvents = await scrapeEvents();
