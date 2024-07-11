@@ -22,7 +22,7 @@ const limiter = rateLimit({
 	legacyHeaders: false,
 });
 
-const server = express();
+const app = express();
 const port = parseInt(process.env.PORT as string, 10) || 3000;
 
 const corsOptions = {
@@ -31,15 +31,15 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
-server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
-server.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors(corsOptions));
 
-server.options("/api", (_req: Request, res: Response) => {
+app.options("/api", (_req: Request, res: Response) => {
 	res.status(200).end();
 });
 
-server.options("/api/upcoming-events", (_req: Request, res: Response) => {
+app.options("/api/upcoming-events", (_req: Request, res: Response) => {
 	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 	res.header("Access-Control-Allow-Methods", "GET");
 	res.header(
@@ -50,7 +50,7 @@ server.options("/api/upcoming-events", (_req: Request, res: Response) => {
 	res.status(200).send();
 });
 
-server.options("/api/past-events", (_req: Request, res: Response) => {
+app.options("/api/past-events", (_req: Request, res: Response) => {
 	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 	res.header("Access-Control-Allow-Methods", "GET");
 	res.header(
@@ -61,15 +61,15 @@ server.options("/api/past-events", (_req: Request, res: Response) => {
 	res.status(200).send();
 });
 
-server.disable("x-powered-by");
+app.disable("x-powered-by");
 
-server.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
-server.get("/api", (_req: Request, res: Response) => {
+app.get("/api", (_req: Request, res: Response) => {
 	res.json({ message: "Use /api/upcoming-events or /api/past-events" });
 });
 
-server.use((_req: Request, res: Response, next: NextFunction) => {
+app.use((_req: Request, res: Response, next: NextFunction) => {
 	res.header("Access-Control-Allow-Origin", "https://gdsc-fsc-l.web.app");
 	res.header(
 		"Access-Control-Allow-Headers",
@@ -77,10 +77,10 @@ server.use((_req: Request, res: Response, next: NextFunction) => {
 	);
 	next();
 });
-server.use("/api/upcoming-events", limiter, upcomingEventsRouter);
-server.use("/api/past-events", limiter, pastEventsRouter);
+app.use("/api/upcoming-events", limiter, upcomingEventsRouter);
+app.use("/api/past-events", limiter, pastEventsRouter);
 
-// server.use(errorHandler);
+// app.use(errorHandler);
 
 const weeklyScrape = async () => {
 	console.log("Weekly scrape started...");
@@ -96,7 +96,7 @@ const weeklyScrape = async () => {
 
 setInterval(weeklyScrape, 7 * 24 * 60 * 60 * 1000);
 
-ViteExpress.listen(server, port, async () => {
+const server = app.listen(port, async () => {
 	console.log(`Server started on http://localhost:${port}/`);
 
 	console.log("Initial scrape started...");
@@ -108,3 +108,5 @@ ViteExpress.listen(server, port, async () => {
 
 	console.log("Initial scrape complete!");
 });
+
+export { server, app };
