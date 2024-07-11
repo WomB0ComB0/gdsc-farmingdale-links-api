@@ -20,6 +20,7 @@ jobs:
       - run: npm install
 
       # Analyze code for potential problems
+      - run: npm install tsc
       - run: npm tsc
 
       # Test
