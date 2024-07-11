@@ -9,7 +9,7 @@
   "scripts": {
     "setup": "husky install",
     "dev": "concurrently \"nodemon -w src/server/* \" \"bun src/server/server.ts\"",
-    "start": "bun run start:pre && export NODE=production bun src/server/server.ts",
+    "start": "bun run start:pre && cross-env NODE=production bun src/server/server.ts",
     "start:pre": "bunx puppeteer browsers install chrome",
     "build": "vite build",
     "test": "vitest",
