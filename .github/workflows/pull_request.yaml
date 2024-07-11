@@ -19,10 +19,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
 
-      # Analyze code for potential problems
-      - run: npm install tsc
-      - run: npm tsc
-
       # Test
       - run: npm run test
 
