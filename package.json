@@ -23,6 +23,7 @@
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "csurf": "^1.11.0",
     "envalid": "^8.0.0",
     "eslint-plugin-react-hooks": "^4.6.2",
