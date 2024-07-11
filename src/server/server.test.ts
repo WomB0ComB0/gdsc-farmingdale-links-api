@@ -1,11 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, afterAll } from "vitest";
+import request from "supertest";
+import { server } from "./server";
 
-describe("Fetch past events", async () => {
+describe("Fetch past events", () => {
+  afterAll(() => {
+    server.close();
+  });
+  test("Server should be running", () => {
+    expect(server.listening).toBe(true);
+  });
 	test("Should receive past events", async () => {
 		try {
-			const events = await fetch("http://localhost:3000/api/past-events");
-			const eventsJson = await events.json();
+			const events = await request(server).get("/api/past-events");
+			expect(events.status).toBe(200);
+			const eventsJson = await events.body;
 			console.log(eventsJson);
 			eventsJson.forEach((event: any) => {
 				expect(event).toHaveProperty("title");
@@ -23,8 +32,8 @@ describe("Fetch past events", async () => {
 describe("Fetch upcoming events", async () => {
 	test("Should receive upcoming events", async () => {
 		try {
-			const events = await fetch(`http://localhost:3000/api/upcoming-events`);
-			const eventsJson = await events.json();
+			const events = await request(server).get("/api/upcoming-events");
+			const eventsJson = await events.body;
 			console.log(eventsJson);
 			eventsJson.forEach((event: any) => {
 				expect(event).toHaveProperty("title");
