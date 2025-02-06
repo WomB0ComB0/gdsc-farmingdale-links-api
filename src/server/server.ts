@@ -6,7 +6,6 @@ import express, {
 	type Response,
 } from "express";
 import { rateLimit } from "express-rate-limit";
-import ViteExpress from "vite-express";
 import { saveEventsToFile } from "./controllers/fileHandler";
 import { scrapeEvents, scrapePastEvents } from "./controllers/scraper";
 import pastEventsRouter from "./routes/pastEvents";
