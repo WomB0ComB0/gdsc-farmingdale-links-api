@@ -25,7 +25,7 @@ const limiter = rateLimit({
 const app = express();
 const port = parseInt(process.env.PORT as string, 10) || 3000;
 
-app.set('trust proxy', true);
+app.set('trust proxy', false);
 
 const corsOptions = {
   origin: "https://gdsc-fsc-l.web.app",
