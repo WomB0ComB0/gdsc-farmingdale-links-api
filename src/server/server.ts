@@ -38,6 +38,10 @@ app.options("/api", (_req: Request, res: Response) => {
 	res.status(200).end();
 });
 
+app.options("/api/keep-alive", (_req: Request, res: Response) => {
+	res.status(200).end();
+});
+
 app.options("/api/upcoming-events", (_req: Request, res: Response) => {
 	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 	res.header("Access-Control-Allow-Methods", "GET");
@@ -76,8 +80,10 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
 	);
 	next();
 });
+
 app.use("/api/upcoming-events", limiter, upcomingEventsRouter);
 app.use("/api/past-events", limiter, pastEventsRouter);
+app.use("/api/keep-alive", limiter, keepAliveRouter);
 
 // app.use(errorHandler);
 
