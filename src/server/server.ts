@@ -10,6 +10,7 @@ import { saveEventsToFile } from "./controllers/fileHandler";
 import { scrapeEvents, scrapePastEvents } from "./controllers/scraper";
 import pastEventsRouter from "./routes/pastEvents";
 import upcomingEventsRouter from "./routes/upcomingEvents";
+import healthRouter from "./routes/health";
 
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
@@ -38,7 +39,7 @@ app.options("/api", (_req: Request, res: Response) => {
 	res.status(200).end();
 });
 
-app.options("/api/keep-alive", (_req: Request, res: Response) => {
+app.options("/api/health", (_req: Request, res: Response) => {
 	res.status(200).end();
 });
 
@@ -83,7 +84,7 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
 
 app.use("/api/upcoming-events", limiter, upcomingEventsRouter);
 app.use("/api/past-events", limiter, pastEventsRouter);
-app.use("/api/keep-alive", limiter, keepAliveRouter);
+app.use("/api/health", limiter, healthRouter);
 
 // app.use(errorHandler);
 
