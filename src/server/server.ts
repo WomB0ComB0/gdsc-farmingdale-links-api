@@ -93,7 +93,7 @@ const weeklyScrape = async () => {
 	console.log("Weekly scrape complete!");
 };
 
-setInterval(weeklyScrape, 7 * 24 * 60 * 60 * 1000);
+setInterval(weeklyScrape, 24 * 60 * 60 * 1000);
 
 const server = app.listen(port, async () => {
 	console.log(`Server started on http://localhost:${port}/`);
