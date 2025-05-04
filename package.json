@@ -26,7 +26,7 @@
     "cross-env": "^7.0.3",
     "csurf": "^1.11.0",
     "envalid": "^8.0.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.8",
     "express": "~4.21.0",
     "express-rate-limit": "^7.3.1",
