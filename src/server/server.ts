@@ -29,8 +29,10 @@ const port = parseInt(process.env.PORT as string, 10) || 3000;
 
 app.set('trust proxy', false);
 
+const domains = "https://gdsc-fsc-l.web.app,https://gdg-fsc.web.app"
+
 const corsOptions = {
-  origin: "https://gdsc-fsc-l.web.app",
+  origin: domains,
   credentials: true,
   optionSuccessStatus: 200,
 };
@@ -83,7 +85,7 @@ app.get("/api", (_req: Request, res: Response) => {
 });
 
 app.use((_req: Request, res: Response, next: NextFunction) => {
-  res.header("Access-Control-Allow-Origin", "https://gdsc-fsc-l.web.app");
+  res.header("Access-Control-Allow-Origin", domains);
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept",
