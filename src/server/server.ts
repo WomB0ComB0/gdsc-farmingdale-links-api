@@ -6,6 +6,7 @@ import express, {
   type Response,
 } from "express";
 import { rateLimit } from "express-rate-limit";
+import ViteExpress from "vite-express";
 import { saveEventsToFile } from "./controllers/fileHandler";
 import { scrapeEvents, scrapePastEvents } from "./controllers/scraper";
 import pastEventsRouter from "./routes/pastEvents";
@@ -77,8 +78,6 @@ app.options("/api/past-events", (_req: Request, res: Response) => {
 
 app.disable("x-powered-by");
 
-app.use(express.static(path.join(__dirname, "../public")));
-
 app.get("/api", (_req: Request, res: Response) => {
   res.json({ message: "Use /api/upcoming-events or /api/past-events" });
 });
@@ -112,7 +111,7 @@ const weeklyScrape = async () => {
 
 setInterval(weeklyScrape, 24 * 60 * 60 * 1000);
 
-const server = app.listen(port, async () => {
+const server = ViteExpress.listen(app, port, async () => {
   console.log(`Server started on http://localhost:${port}/`);
 
   console.log("Initial scrape started...");
