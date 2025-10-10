@@ -6,6 +6,7 @@ import express, {
   type Response,
 } from "express";
 import { rateLimit } from "express-rate-limit";
+import ViteExpress from "vite-express";
 import { saveEventsToFile } from "./controllers/fileHandler";
 import { scrapeEvents, scrapePastEvents } from "./controllers/scraper";
 import pastEventsRouter from "./routes/pastEvents";
@@ -28,8 +29,10 @@ const port = parseInt(process.env.PORT as string, 10) || 3000;
 
 app.set('trust proxy', false);
 
+const domains = "https://gdsc-fsc-l.web.app,https://gdg-fsc.web.app"
+
 const corsOptions = {
-  origin: "https://gdsc-fsc-l.web.app",
+  origin: domains,
   credentials: true,
   optionSuccessStatus: 200,
 };
@@ -77,14 +80,12 @@ app.options("/api/past-events", (_req: Request, res: Response) => {
 
 app.disable("x-powered-by");
 
-app.use(express.static(path.join(__dirname, "../public")));
-
 app.get("/api", (_req: Request, res: Response) => {
   res.json({ message: "Use /api/upcoming-events or /api/past-events" });
 });
 
 app.use((_req: Request, res: Response, next: NextFunction) => {
-  res.header("Access-Control-Allow-Origin", "https://gdsc-fsc-l.web.app");
+  res.header("Access-Control-Allow-Origin", domains);
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept",
@@ -112,7 +113,7 @@ const weeklyScrape = async () => {
 
 setInterval(weeklyScrape, 24 * 60 * 60 * 1000);
 
-const server = app.listen(port, async () => {
+const server = ViteExpress.listen(app, port, async () => {
   console.log(`Server started on http://localhost:${port}/`);
 
   console.log("Initial scrape started...");
