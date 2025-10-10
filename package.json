@@ -37,7 +37,7 @@
     "million": "^3.1.11",
     "nodemon": "^3.1.4",
     "open-graph-scraper": "^6.10.0",
-    "puppeteer": "^22.13.0",
+    "puppeteer": "^24.6.1",
     "react-dom": "^19.1.0",
     "react": "^19.1.0",
     "react-router-dom": "^7.5.0",
