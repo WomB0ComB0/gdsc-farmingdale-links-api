@@ -2,6 +2,7 @@ import axios from "axios";
 import { load } from "cheerio";
 import puppeteer from "puppeteer";
 import { College } from "../constant/index";
+import ogs from 'open-graph-scraper';
 
 type Events = {
 	title: string | null;
@@ -45,35 +46,56 @@ export const scrapePastEvents = async (): Promise<Events[]> => {
 		const eventElements = document.querySelectorAll(
 			'[data-testid="container-block---ruSKZrkro"]',
 		);
-		const eventsArray: Events[] = [];
+		const eventsArray: { thumbnailLink: string | null; detailsLink: string | null; eventType: string; }[] = [];
 
 		eventElements.forEach((elem) => {
-			const titleElement = elem.querySelector(
-				"div[data-testid='container-block-4p6-5nQVq'] a span.plainText-styles__plainText_8ys50",
-			);
-			const title = titleElement?.textContent?.trim() || "";
+			const thumbnailLink = elem.querySelector("img")?.src || null;
+			const detailsLink =
+				(elem.querySelector("a.link-styles__link_1ec3q") as HTMLAnchorElement)
+					?.href || null;
 
 			const eventTypeElement = elem.querySelector(
 				"div[data-testid='container-block-VDLl86XLOx3'] span.plainText-styles__plainText_8ys50",
 			);
 			const eventType = eventTypeElement?.textContent?.trim() || "";
 
-			const fullTitle = eventType ? `${title} - ${eventType}` : title;
-
-			const thumbnailLink = elem.querySelector("img")?.src || null;
-			const detailsLink =
-				(elem.querySelector("a.link-styles__link_1ec3q") as HTMLAnchorElement)
-					?.href || null;
-
 			eventsArray.push({
-				title: fullTitle,
 				thumbnailLink,
 				detailsLink,
+				eventType,
 			});
 		});
 
 		return eventsArray;
 	});
-	browser.close();
-	return events;
+
+	await browser.close();
+
+	const results: Events[] = [];
+	for (const event of events) {
+		let title: string | null = "";
+		if (event.detailsLink) {
+			try {
+				const ogResult = await ogs({
+					url: event.detailsLink,
+					fetchOptions: {
+						headers: {
+							'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
+						},
+					}
+				});
+				title = ogResult.result.ogTitle || "";
+			} catch (e) {
+				title = "";
+			}
+		}
+		const fullTitle = event.eventType ? `${title} - ${event.eventType}` : title;
+		results.push({
+			title: fullTitle,
+			thumbnailLink: event.thumbnailLink,
+			detailsLink: event.detailsLink,
+		});
+	}
+
+	return results;
 };
