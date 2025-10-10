@@ -1,22 +1,22 @@
 [
   {
-    "title": "",
-    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_krJ61eA.png",
-    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-leetcode-practice-2025-02-06/"
-  },
-  {
-    "title": "",
-    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_eSVraML.png",
-    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-project-showcase-2025-02-07-1/"
-  },
-  {
-    "title": "",
+    "title": "GDG on Campus Farmingdale State College - Google Cloud Learning | Google Developer Groups",
     "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_ulBtAxG.png",
-    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-google-cloud-learning-2025-02-08/"
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-google-cloud-learning-2025-06-21/"
   },
   {
-    "title": "",
+    "title": "GDG on Campus Farmingdale State College - Google Cloud Study Group | Google Developer Groups",
     "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_58zfuXH.png",
-    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-google-cloud-study-group-2025-02-08/"
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-google-cloud-study-group-2025-06-21/"
+  },
+  {
+    "title": "GDG on Campus Farmingdale State College - LeetCode Practice | Google Developer Groups",
+    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_WMegr7u.png",
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-leetcode-practice-2025-06-21/"
+  },
+  {
+    "title": "GDG on Campus Farmingdale State College - Google Cloud Learning | Google Developer Groups",
+    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_y2NPQvC.png",
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-google-cloud-learning-2025-06-22/"
   }
 ]
