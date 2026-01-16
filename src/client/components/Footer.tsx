@@ -19,3 +19,4 @@ const Footer: FC = (): JSX.Element => {
 	);
 };
 export default Footer;
+
