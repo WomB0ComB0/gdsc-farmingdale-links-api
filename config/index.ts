@@ -6,7 +6,7 @@
 export const COLLEGE = 'gdg-on-campus-farmingdale-state-college-farmingdale-united-states';
 
 /** Server port */
-export const PORT = Number(process.env.PORT) || 8080;
+export const PORT = Number(process.env.PORT) || 3000;
 
 /** Allowed CORS origins */
 export const CORS_ORIGINS = [
@@ -22,7 +22,7 @@ export const RATE_LIMIT = {
 } as const;
 
 /** API version */
-export const API_VERSION = await import('../../../package.json', { assert: { type: 'json' } })
+export const API_VERSION = await import('../package.json', { assert: { type: 'json' } })
   .then((pkg) => pkg.default.version)
   .catch(() => '1.0.0');
 

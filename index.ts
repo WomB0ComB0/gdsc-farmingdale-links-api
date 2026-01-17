@@ -1,9 +1,9 @@
 import { staticPlugin } from '@elysiajs/static';
 import { root } from './app';
-export { root, root as default } from './app';
 import { PORT, SCRAPE_INTERVAL_MS } from './config';
 import { saveEventsToFile } from './services/file-handler.service';
 import { scrapePastEvents, scrapeUpcomingEvents } from './services/scraper.service';
+export { root as default, root } from './app';
 
 /**
  * Run the event scraper and save results to files
@@ -16,8 +16,8 @@ const runScrape = async (): Promise<void> => {
       scrapePastEvents(),
     ]);
 
-    saveEventsToFile(upcomingEvents, '../data/upcoming-events.json');
-    saveEventsToFile(pastEvents, '../data/past-events.json');
+    saveEventsToFile(upcomingEvents, './data/upcoming-events.json');
+    saveEventsToFile(pastEvents, './data/past-events.json');
 
     console.log(`Scraped ${upcomingEvents.length} upcoming events and ${pastEvents.length} past events`);
   } catch (error) {

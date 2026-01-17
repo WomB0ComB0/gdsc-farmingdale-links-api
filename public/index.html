@@ -62,7 +62,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+        navigator.serviceWorker.register('./service-worker.ts').then(function (registration) {
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
         }, function (err) {
           console.log('ServiceWorker registration failed: ', err);
@@ -75,7 +75,7 @@
 <body>
   <div id="app"></div>
   <script src="https://kit.fontawesome.com/a93e9f2175.js" crossorigin="anonymous"></script>
-  <script type="module" src="./src/client/main.tsx"></script>
+  <script type="module" src="./main.tsx"></script>
 </body>
 
 </html>
