@@ -6,4 +6,16 @@ export default defineConfig({
 	esbuild: {
 		jsxInject: `import React from 'react'`,
 	},
+	server: {
+		proxy: {
+			"/api": {
+				target: "http://localhost:3000",
+				changeOrigin: true,
+			},
+			"/swagger": {
+				target: "http://localhost:3000",
+				changeOrigin: true,
+			},
+		},
+	},
 });

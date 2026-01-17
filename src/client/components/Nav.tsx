@@ -1,43 +1,65 @@
 "use client";
 import { GdscLogo } from "./svgs/index";
+
 const Nav = (): JSX.Element => {
 	return (
-		<nav>
-			<menu
+		<nav
+			className="glass"
+			style={{
+				display: "flex",
+				justifyContent: "space-between",
+				alignItems: "center",
+				padding: "0 var(--spacing-md)",
+				height: "80px",
+				position: "fixed",
+				top: 0,
+				left: 0,
+				right: 0,
+				zIndex: 100,
+				borderBottom: "var(--border-glass)",
+                borderRadius: "0 0 var(--radius-md) var(--radius-md)",
+                margin: "0 var(--spacing-sm)",
+                marginTop: "var(--spacing-xs)",
+			}}
+		>
+			<a
+				href="https://gdsc.community.dev/farmingdale-state-college/"
+				target="_blank"
+				rel="noopener noreferrer"
 				style={{
-					padding: "0",
 					display: "flex",
 					alignItems: "center",
-					width: "80px",
-					height: "80px",
-					userSelect: "none",
-					color: "#747474",
-					backgroundColor: "transparent",
-					cursor: "pointer",
+					height: "100%",
+                    width: "60px",
+                    transition: "transform 0.2s ease",
 				}}
-				onClick={() => {
-					window.open(
-						"https://gdsc.community.dev/farmingdale-state-college/",
-						"_blank",
-						"noopener noreferrer",
-					);
-				}}
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
 			>
 				<GdscLogo />
-			</menu>
-			<menu>
+			</a>
+			<ul style={{ display: "flex", gap: "var(--spacing-md)", listStyle: "none" }}>
 				<li>
-					<i className="fa-brands fa-github" aria-hidden="true"></i>
 					<a
-						href={`https://github.com/GDSC-FSC/gdsc-farmingdale-links`}
+						href="https://github.com/GDSC-FSC/gdsc-farmingdale-links"
 						target="_blank"
 						rel="noopener noreferrer"
+						style={{
+							display: "flex",
+							alignItems: "center",
+							gap: "var(--spacing-xs)",
+							color: "var(--text-primary)",
+							fontWeight: 500,
+                            fontSize: "1.1rem",
+						}}
 					>
-						GitHub
+						<i className="fa-brands fa-github" style={{ fontSize: "1.5rem" }}></i>
+						<span>GitHub</span>
 					</a>
 				</li>
-			</menu>
+			</ul>
 		</nav>
 	);
 };
+
 export default Nav;

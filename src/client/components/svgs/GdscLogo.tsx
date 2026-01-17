@@ -13,6 +13,7 @@ const GdscLogo: React.FC = (): JSX.Element => {
 				width: "4rem",
 			}}
 		>
+			<title>GDSC Logo</title>
 			<rect
 				x="33"
 				y="242.514"
