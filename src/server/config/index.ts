@@ -6,7 +6,7 @@
 export const COLLEGE = 'gdg-on-campus-farmingdale-state-college-farmingdale-united-states';
 
 /** Server port */
-export const PORT = Number(process.env.PORT) || 3000;
+export const PORT = Number(process.env.PORT) || 8080;
 
 /** Allowed CORS origins */
 export const CORS_ORIGINS = [

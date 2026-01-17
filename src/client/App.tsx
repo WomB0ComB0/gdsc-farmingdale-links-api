@@ -17,7 +17,7 @@ const App = (): JSX.Element => {
 				<section style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-md)", alignItems: "center" }}>
 					<article className="glass" style={{ padding: "var(--spacing-md)", borderRadius: "var(--radius-md)", maxWidth: "800px", width: "100%" }}>
 						<h2 style={{ fontSize: "2rem", marginBottom: "var(--spacing-sm)", color: "var(--text-primary)" }}>GDSC Links API</h2>
-						<p style={{ lineHeight: "1.6", color: "var(--text-secondary)" }}>
+						<p style={{ lineHeight: "1.6", color: "var(--text-secondary)", marginBottom: "var(--spacing-md)" }}>
 							The purpose of this{" "}
 							<a
 								href="https://en.wikipedia.org/wiki/API"
@@ -29,30 +29,106 @@ const App = (): JSX.Element => {
 							</a>
 							{" "}is to provide a way for any GDSC chapter to access their event data. This API returns 2 JSON objects:
 						</p>
-						<ul style={{ marginTop: "var(--spacing-sm)", display: "flex", flexDirection: "column", gap: "var(--spacing-xs)" }}>
-							<li style={{ display: "flex", alignItems: "center", gap: "var(--spacing-xs)" }}>
-								<span style={{ color: "var(--text-primary)", fontWeight: "bold" }}>'past-events'</span>
-								<a
-									href="/api/v1/past-events"
-									target="_blank"
-									rel="noopener noreferrer"
-									style={{ color: "var(--text-secondary)", opacity: 0.8, fontSize: "0.9rem" }}
-								>
-									/api/v1/past-events
-								</a>
-							</li>
-							<li style={{ display: "flex", alignItems: "center", gap: "var(--spacing-xs)" }}>
-								<span style={{ color: "var(--text-primary)", fontWeight: "bold" }}>'upcoming-events'</span>
-								<a
-									href="/api/v1/upcoming-events"
-									target="_blank"
-									rel="noopener noreferrer"
-									style={{ color: "var(--text-secondary)", opacity: 0.8, fontSize: "0.9rem" }}
-								>
-									/api/v1/upcoming-events
-								</a>
-							</li>
-						</ul>
+
+						<div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-sm)" }}>
+							{/* Endpoint 1 */}
+							<div style={{
+								display: "flex",
+								flexDirection: "column",
+								gap: "var(--spacing-xs)",
+								background: "rgba(0,0,0,0.3)",
+								padding: "var(--spacing-sm)",
+								borderRadius: "var(--radius-sm)",
+								border: "1px solid var(--accent-quaternary)"
+							}}>
+								<span style={{
+									fontSize: "0.85rem",
+									textTransform: "uppercase",
+									letterSpacing: "1px",
+									color: "var(--text-secondary)",
+									fontWeight: 600
+								}}>
+									Past Events
+								</span>
+								<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+									<code style={{
+										fontFamily: "monospace",
+										color: "var(--text-primary)",
+										background: "rgba(255,255,255,0.05)",
+										padding: "4px 8px",
+										borderRadius: "4px",
+										fontSize: "0.9rem"
+									}}>
+										'past-events'
+									</code>
+									<a
+										href="http://localhost:8080/api/v1/past-events"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											color: "var(--accent-secondary)",
+											fontSize: "0.9rem",
+											textDecoration: "none",
+											display: "flex",
+											alignItems: "center",
+											gap: "0.5rem"
+										}}
+									>
+										{"/api/v1/past-events"}
+										<span style={{ fontSize: "1.2em" }}>↗</span>
+									</a>
+								</div>
+							</div>
+
+							{/* Endpoint 2 */}
+							<div style={{
+								display: "flex",
+								flexDirection: "column",
+								gap: "var(--spacing-xs)",
+								background: "rgba(0,0,0,0.3)",
+								padding: "var(--spacing-sm)",
+								borderRadius: "var(--radius-sm)",
+								border: "1px solid var(--accent-quaternary)"
+							}}>
+								<span style={{
+									fontSize: "0.85rem",
+									textTransform: "uppercase",
+									letterSpacing: "1px",
+									color: "var(--text-secondary)",
+									fontWeight: 600
+								}}>
+									Upcoming Events
+								</span>
+								<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+									<code style={{
+										fontFamily: "monospace",
+										color: "var(--text-primary)",
+										background: "rgba(255,255,255,0.05)",
+										padding: "4px 8px",
+										borderRadius: "4px",
+										fontSize: "0.9rem"
+									}}>
+										'upcoming-events'
+									</code>
+									<a
+										href="http://localhost:8080/api/v1/upcoming-events"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											color: "var(--accent-secondary)",
+											fontSize: "0.9rem",
+											textDecoration: "none",
+											display: "flex",
+											alignItems: "center",
+											gap: "0.5rem"
+										}}
+									>
+										{"/api/v1/upcoming-events"}
+										<span style={{ fontSize: "1.2em" }}>↗</span>
+									</a>
+								</div>
+							</div>
+						</div>
 					</article>
 
 					<section style={{ display: "flex", flexWrap: "wrap", gap: "var(--spacing-md)", justifyContent: "center", width: "100%" }}>
@@ -76,7 +152,7 @@ const App = (): JSX.Element => {
 									fontWeight: 600,
 								}}
 							>
-								Past Events
+								{"Past Events"}
 								<span style={{ transform: openAccordion === "past" ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.3s" }}>▼</span>
 							</button>
 							<div className={`accordion-content ${openAccordion === "past" ? "open" : ""}`}>
@@ -110,7 +186,7 @@ const App = (): JSX.Element => {
 									fontWeight: 600,
 								}}
 							>
-								Upcoming Events
+								{"Upcoming Events"}
 								<span style={{ transform: openAccordion === "upcoming" ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.3s" }}>▼</span>
 							</button>
 							<div className={`accordion-content ${openAccordion === "upcoming" ? "open" : ""}`}>

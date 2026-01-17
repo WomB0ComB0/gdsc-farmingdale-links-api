@@ -1,7 +1,10 @@
+import { staticPlugin } from '@elysiajs/static';
 import { root } from './app';
 import { PORT, SCRAPE_INTERVAL_MS } from './config';
 import { saveEventsToFile } from './services/file-handler.service';
 import { scrapePastEvents, scrapeUpcomingEvents } from './services/scraper.service';
+
+console.log('🚀 Starting GDSC Farmingdale Links API...');
 
 /**
  * Run the event scraper and save results to files
@@ -23,37 +26,25 @@ const runScrape = async (): Promise<void> => {
   }
 };
 
-/**
- * Graceful shutdown handler
- */
-const shutdown = async (): Promise<void> => {
-  console.info('Shutting down 🦊 Elysia');
-  await root.stop();
-  process.exit(0);
-};
+// Configure static plugin for Fullstack Dev Server
+// We await the plugin initialization, then use it
+const staticFiles = await staticPlugin({
+  assets: 'public',
+  prefix: '/'
+});
+root.use(staticFiles);
 
-process.on('SIGINT', shutdown);
-process.on('SIGTERM', shutdown);
+// Start the server
+root.listen({ port: PORT, hostname: '0.0.0.0' }, ({ hostname, port }) => {
+  console.info(`🦊 Elysia is running at http://${hostname}:${port}`);
+  console.info(`📚 Swagger docs at http://${hostname}:${port}/swagger`);
+});
 
-/**
- * Start the server
- */
-const start = async (): Promise<void> => {
-  // Start the server
-  root.listen({ port: PORT, hostname: '0.0.0.0' });
+// Run initial scrape
+runScrape();
 
-  console.info(`🦊 Elysia is running at http://localhost:${PORT}`);
-  console.info(`📚 Swagger docs at http://localhost:${PORT}/swagger`);
-
-  // Run initial scrape
-  console.log('Running initial scrape...');
-  await runScrape();
-  console.log('Initial scrape complete!');
-
-  // Schedule periodic scrape (every 24 hours)
-  setInterval(runScrape, SCRAPE_INTERVAL_MS);
-};
-
-start();
+// Schedule periodic scrape
+setInterval(runScrape, SCRAPE_INTERVAL_MS);
 
 export { root };
+export type App = typeof root;
