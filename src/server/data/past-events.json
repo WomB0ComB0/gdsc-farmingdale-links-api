@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "title": "Exploring 2D Context Compression with Google's Gemma Models and Vertex AI",
+    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/fetch/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/https://res.cloudinary.com/startup-grind/image/upload/c_fill%2Cdpr_2.0%2Cf_auto%2Cg_center%2Cq_auto:good/v1/gcs/platform-data-goog/event_banners/GDG_Bevy_DefaultEventThumbnail_2_vaeskpB.png",
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-exploring-2d-context-compression-with-googles-gemma-models-and-vertex-ai/"
+  },
+  {
+    "title": "Google Cloud Demo Collaboration: Farmingdale & Brooklyn College GDG",
+    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/fetch/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/https://res.cloudinary.com/startup-grind/image/upload/c_fill%2Cdpr_2.0%2Cf_auto%2Cg_center%2Cq_auto:good/v1/gcs/platform-data-goog/event_banners/GDG_Bevy_DefaultEventThumbnail_2_vaeskpB.png",
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-brooklyn-college-presents-google-cloud-demo-collaboration-farmingdale-amp-brooklyn-college-gdg/cohost-gdg-on-campus-farmingdale-state-college-farmingdale-united-states"
+  },
+  {
+    "title": "GDG on Campus Farmingdale State College - LeetCode Practice",
+    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_WMegr7u.png",
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-leetcode-practice-2025-09-06/"
+  },
+  {
+    "title": "GDG on Campus Farmingdale State College - Google Cloud Study Group",
+    "thumbnailLink": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/Logo_58zfuXH.png",
+    "detailsLink": "https://gdg.community.dev/events/details/google-gdg-on-campus-farmingdale-state-college-farmingdale-united-states-presents-gdg-on-campus-farmingdale-state-college-google-cloud-study-group-2025-09-06/"
+  }
+]

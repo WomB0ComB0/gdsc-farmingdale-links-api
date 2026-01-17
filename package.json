@@ -18,8 +18,9 @@
   "dependencies": {
     "@hono/zod-validator": "^0.4.1",
     "axios": "^1.7.2",
+    "baseline-browser-mapping": "^2.9.15",
     "body-parser": "^1.20.2",
-    "caniuse-lite": "^1.0.30001724",
+    "caniuse-lite": "^1.0.30001764",
     "cheerio": "^1.0.0-rc.12",
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",

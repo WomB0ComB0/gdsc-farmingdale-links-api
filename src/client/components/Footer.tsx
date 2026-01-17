@@ -11,7 +11,7 @@ const Footer: FC = (): JSX.Element => {
 			</p>
 			<p>
 				Made with 🖤 by{" "}
-				<a target={`_blank`} href="https://mikeodnis.com/" rel="noreferrer">
+				<a target={`_blank`} href="https://mikeodnis.dev/" rel="noreferrer">
 					Mike Odnis
 				</a>
 			</p>
