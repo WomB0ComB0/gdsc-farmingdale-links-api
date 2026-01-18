@@ -32,7 +32,7 @@ RUN bun install --frozen-lockfile
 # Copy source files
 COPY . .
 
-# Build the application
+# Build the application (outputs to ./server executable)
 RUN bun run build
 
 ################################################################################
@@ -43,19 +43,25 @@ ENV NODE_ENV=production
 
 # Create non-root user for security
 RUN addgroup --system --gid 1001 app && \
-    adduser --system --uid 1001 --ingroup app app
+  adduser --system --uid 1001 --ingroup app app
 
 USER app
 
 # Copy production dependencies
 COPY --from=deps --chown=app:app /app/node_modules ./node_modules
 
-# Copy built application
-COPY --from=build --chown=app:app /app/dist ./dist
+# Copy built application (compiled executable)
+COPY --from=build --chown=app:app /app/server ./server
+
+# Copy public folder for static assets
+COPY --from=build --chown=app:app /app/public ./public
+
+# Copy data folder
+COPY --from=build --chown=app:app /app/data ./data
 
 # Copy package.json for runtime
 COPY --chown=app:app package.json ./
 
 EXPOSE 3000
 
-CMD ["bun", "run", "start"]
+CMD ["./server"]

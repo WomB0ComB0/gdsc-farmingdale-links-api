@@ -3,7 +3,9 @@ import { root } from './app';
 import { PORT, SCRAPE_INTERVAL_MS } from './config';
 import { saveEventsToFile } from './services/file-handler.service';
 import { scrapePastEvents, scrapeUpcomingEvents } from './services/scraper.service';
+
 export { root as default, root } from './app';
+export type App = typeof root;
 
 /**
  * Run the event scraper and save results to files
@@ -25,25 +27,24 @@ const runScrape = async (): Promise<void> => {
   }
 };
 
-// Configure static plugin for Fullstack Dev Server
-// This must be awaited to enable HMR hooks
-await root.use(await staticPlugin({
-  assets: 'public',
-  prefix: '/'
-}));
-
-// Start the server if running directly (not as a module/worker)
+// Only start server when running directly (not as a module/worker)
 if (import.meta.main) {
-    root.listen({ port: PORT, hostname: '0.0.0.0' }, ({ hostname, port }) => {
-      console.info(`🦊 Elysia is running at http://${hostname}:${port}`);
-      console.info(`📚 Swagger docs at http://${hostname}:${port}/swagger`);
-    });
+  // Configure static plugin for Fullstack Dev Server
+  // This must be awaited to enable HMR hooks
+  root.use(await staticPlugin({
+    assets: 'public',
+    prefix: '/'
+  }));
 
-    // Run initial scrape
-    runScrape();
+  // Start the server
+  root.listen({ port: PORT, hostname: '0.0.0.0' }, ({ hostname, port }) => {
+    console.info(`🦊 Elysia is running at http://${hostname}:${port}`);
+    console.info(`📚 Swagger docs at http://${hostname}:${port}/swagger`);
+  });
 
-    // Schedule periodic scrape
-    setInterval(runScrape, SCRAPE_INTERVAL_MS);
+  // Run initial scrape
+  runScrape();
+
+  // Schedule periodic scrape
+  setInterval(runScrape, SCRAPE_INTERVAL_MS);
 }
-
-export type App = typeof root;
