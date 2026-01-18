@@ -6,7 +6,6 @@ import { Elysia } from 'elysia';
 import { ip } from 'elysia-ip';
 import { rateLimit } from 'elysia-rate-limit';
 import { elysiaHelmet } from 'elysiajs-helmet';
-import logixlysia from 'logixlysia';
 
 import { CORS_ORIGINS, RATE_LIMIT } from './config';
 import { errorMiddleware } from './middleware/error.middleware';
@@ -35,19 +34,20 @@ const permission = {
  * Main Elysia application with all middleware and routes
  */
 export const app = new Elysia({ prefix: '/api/v1' })
-  .use(
-    logixlysia({
-      config: {
-        showStartupMessage: false,
-        startupMessageFormat: 'simple',
-        timestamp: {
-          translateTime: 'yyyy-mm-dd HH:MM:ss.SSS',
-        },
-        ip: true,
-        customLogFormat: '🦊 {now} {level} {duration} {method} {pathname} {status} {message} {ip}',
-      },
-    }),
-  )
+  // Temporarily disabled logixlysia to debug double server start
+  // .use(
+  //   logixlysia({
+  //     config: {
+  //       showStartupMessage: false,
+  //       startupMessageFormat: 'simple',
+  //       timestamp: {
+  //         translateTime: 'yyyy-mm-dd HH:MM:ss.SSS',
+  //       },
+  //       ip: true,
+  //       customLogFormat: '🦊 {now} {level} {duration} {method} {pathname} {status} {message} {ip}',
+  //     },
+  //   }),
+  // )
   .use(
     elysiaHelmet({
       csp: {

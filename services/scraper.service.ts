@@ -41,7 +41,9 @@ export const scrapeUpcomingEvents = async (): Promise<Event[]> => {
       const titleLink = elem.querySelector('a.link-styles__link_1ec3q');
       const title = titleLink?.textContent?.trim() || '';
 
-      const eventTypeElement = elem.querySelector('[data-testid="container-block-VDLl86XLOx3"] strong');
+      const eventTypeElement = elem.querySelector(
+        '[data-testid="container-block-VDLl86XLOx3"] strong',
+      );
       const eventType = eventTypeElement?.textContent?.trim() || '';
 
       if (detailsLink?.includes('gdg.community.dev/events')) {
@@ -98,7 +100,9 @@ export const scrapePastEvents = async (): Promise<Event[]> => {
   await new Promise((r) => setTimeout(r, 3000));
 
   const events = await page.evaluate(() => {
-    const pastEventsContainer = document.querySelector('[data-testid^="data-block-for-pastEvents-"]');
+    const pastEventsContainer = document.querySelector(
+      '[data-testid^="data-block-for-pastEvents-"]',
+    );
 
     if (!pastEventsContainer) {
       const pastHeading = Array.from(document.querySelectorAll('h1')).find((h) =>
@@ -129,7 +133,9 @@ export const scrapePastEvents = async (): Promise<Event[]> => {
       const titleLink = elem.querySelector('a.link-styles__link_1ec3q');
       const title = titleLink?.textContent?.trim() || '';
 
-      const eventTypeElement = elem.querySelector('[data-testid="container-block-VDLl86XLOx3"] strong');
+      const eventTypeElement = elem.querySelector(
+        '[data-testid="container-block-VDLl86XLOx3"] strong',
+      );
       const eventType = eventTypeElement?.textContent?.trim() || '';
 
       if (detailsLink?.includes('gdg.community.dev/events')) {

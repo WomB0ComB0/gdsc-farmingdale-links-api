@@ -4,7 +4,8 @@ import { PORT, SCRAPE_INTERVAL_MS } from './config';
 import { saveEventsToFile } from './services/file-handler.service';
 import { scrapePastEvents, scrapeUpcomingEvents } from './services/scraper.service';
 
-export { root as default, root } from './app';
+// Don't export root as default - Bun HMR will try to Bun.serve() it!
+export { root } from './app';
 export type App = typeof root;
 
 /**
@@ -21,7 +22,9 @@ const runScrape = async (): Promise<void> => {
     saveEventsToFile(upcomingEvents, './data/upcoming-events.json');
     saveEventsToFile(pastEvents, './data/past-events.json');
 
-    console.log(`Scraped ${upcomingEvents.length} upcoming events and ${pastEvents.length} past events`);
+    console.log(
+      `Scraped ${upcomingEvents.length} upcoming events and ${pastEvents.length} past events`,
+    );
   } catch (error) {
     console.error('Error during scrape:', error);
   }
@@ -29,22 +32,23 @@ const runScrape = async (): Promise<void> => {
 
 // Only start server when running directly (not as a module/worker)
 if (import.meta.main) {
-  // Configure static plugin for Fullstack Dev Server
-  // This must be awaited to enable HMR hooks
-  root.use(await staticPlugin({
-    assets: 'public',
-    prefix: '/'
-  }));
+  // Configure static plugin
+  root.use(
+    staticPlugin({
+      assets: 'public',
+      prefix: '/',
+    }),
+  );
 
   // Start the server
-  root.listen({ port: PORT, hostname: '0.0.0.0' }, ({ hostname, port }) => {
-    console.info(`🦊 Elysia is running at http://${hostname}:${port}`);
-    console.info(`📚 Swagger docs at http://${hostname}:${port}/swagger`);
-  });
+  root.listen(PORT);
 
-  // Run initial scrape
-  runScrape();
+  console.info(`🦊 Elysia is running at http://localhost:${PORT}`);
+  console.info(`📚 Swagger docs at http://localhost:${PORT}/swagger`);
 
-  // Schedule periodic scrape
-  setInterval(runScrape, SCRAPE_INTERVAL_MS);
+  // Delay scrape to ensure server is fully initialized
+  setTimeout(() => {
+    runScrape();
+    setInterval(runScrape, SCRAPE_INTERVAL_MS);
+  }, 2000);
 }

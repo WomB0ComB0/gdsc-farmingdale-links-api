@@ -48,7 +48,7 @@ export const utilityRoute = new Elysia()
   .get(
     '/',
     () => ({
-      message: "Welcome to the GDSC Farmingdale API. Use /events/upcoming or /events/past",
+      message: 'Welcome to the GDSC Farmingdale API. Use /events/upcoming or /events/past',
       status: 200,
     }),
     {

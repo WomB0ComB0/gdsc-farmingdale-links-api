@@ -13,7 +13,10 @@
     "start:pre": "bunx puppeteer browsers install chrome",
     "build": "bun build --compile --target bun --outfile server index.ts",
     "test": "bun test",
-    "lint": "eslint --cache --report-unused-disable-directives ."
+    "lint": "bunx --bun @biomejs/biome lint .",
+    "lint:fix": "bunx --bun @biomejs/biome lint . --write",
+    "format": "bunx --bun @biomejs/biome format . --write",
+    "check": "bunx --bun @biomejs/biome check . --write"
   },
   "dependencies": {
     "@effect/platform": "^0.94.1",
@@ -46,11 +49,7 @@
   },
   "browserslist": {
     "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
   "bugs": {
     "url": "https://github.com/WomB0ComB0/gdsc-farmingdale-links-api/issues"

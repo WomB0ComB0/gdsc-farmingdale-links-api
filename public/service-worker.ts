@@ -1,14 +1,10 @@
 /// <reference lib="webworker" />
 
-export { };
+export type {};
 declare const self: ServiceWorkerGlobalScope;
 
 const CACHE_NAME = 'gdsc-fsc-cache-v1';
-const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-];
+const STATIC_ASSETS = ['/', '/index.html', '/css/style.css'];
 
 // Install event - cache static assets
 self.addEventListener('install', (event: ExtendableEvent) => {
@@ -27,7 +23,7 @@ self.addEventListener('install', (event: ExtendableEvent) => {
       })
       .catch((error) => {
         console.error('Service Worker: Cache failed', error);
-      })
+      }),
   );
 });
 
@@ -36,18 +32,21 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
   console.info('Service Worker: Activating...');
 
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME)
-          .map((name) => {
-            console.info(`Service Worker: Deleting old cache: ${name}`);
-            return caches.delete(name);
-          })
-      );
-    }).then(() => {
-      return (globalThis as unknown as ServiceWorkerGlobalScope).clients.claim();
-    })
+    caches
+      .keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames
+            .filter((name) => name !== CACHE_NAME)
+            .map((name) => {
+              console.info(`Service Worker: Deleting old cache: ${name}`);
+              return caches.delete(name);
+            }),
+        );
+      })
+      .then(() => {
+        return (globalThis as unknown as ServiceWorkerGlobalScope).clients.claim();
+      }),
   );
 });
 
@@ -91,6 +90,6 @@ self.addEventListener('fetch', (event: FetchEvent) => {
           }
           return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
         });
-      })
+      }),
   );
 });

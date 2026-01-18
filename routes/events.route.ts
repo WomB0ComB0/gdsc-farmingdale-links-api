@@ -17,7 +17,7 @@ export const eventsRoute = new Elysia({ prefix: '/events' })
     '/upcoming',
     () => {
       console.log('Requested upcoming events');
-      const data = readEventsFromFile('../data/upcoming-events.json');
+      const data = readEventsFromFile('./data/upcoming-events.json');
       return data;
     },
     {
@@ -43,7 +43,7 @@ export const eventsRoute = new Elysia({ prefix: '/events' })
     '/past',
     () => {
       console.log('Requested past events');
-      const data = readEventsFromFile('../data/past-events.json');
+      const data = readEventsFromFile('./data/past-events.json');
       return data;
     },
     {

@@ -41,8 +41,5 @@ export const keepAlive = async (): Promise<void> => {
     ),
   );
 
-  await Effect.runPromise(
-    Effect.scoped(Effect.provide(program, FetchHttpClient.layer)),
-  );
+  await Effect.runPromise(Effect.scoped(Effect.provide(program, FetchHttpClient.layer)));
 };
-

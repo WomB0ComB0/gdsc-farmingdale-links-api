@@ -6,7 +6,4 @@ import { utilityRoute } from './utility.route';
 /**
  * Route aggregator - combines all routes
  */
-export const routes = new Elysia()
-  .use(utilityRoute)
-  .use(eventsRoute)
-  .use(healthRoute);
+export const routes = new Elysia().use(utilityRoute).use(eventsRoute).use(healthRoute);
