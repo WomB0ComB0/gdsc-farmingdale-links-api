@@ -1,6 +1,6 @@
 "use client";
-
 import type React from "react";
+
 
 const OpenGraph: React.FC<{ props?: React.SVGAttributes<SVGElement> }> = ({ props }): JSX.Element => {
 	return (

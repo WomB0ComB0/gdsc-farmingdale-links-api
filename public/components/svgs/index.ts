@@ -1,3 +1,3 @@
-import GdscLogo from "./GdscLogo";
-import OpenGraph from "./OpenGraph";
+import GdscLogo from "./gdsc-logo";
+import OpenGraph from "./open-graph";
 export { GdscLogo, OpenGraph };

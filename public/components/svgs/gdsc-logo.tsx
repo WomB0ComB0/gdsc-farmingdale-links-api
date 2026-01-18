@@ -1,7 +1,8 @@
 "use client";
+
 import type React from "react";
-// <{ props?: React.SVGAttributes<SVGElement> }>
-const GdscLogo: React.FC = (): JSX.Element => {
+
+const GdscLogo: React.FC<{ props?: React.SVGAttributes<SVGElement> }> = ({ props }): JSX.Element => {
 	return (
 		<svg
 			fill="none"
